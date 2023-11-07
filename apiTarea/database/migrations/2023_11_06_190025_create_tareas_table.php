@@ -16,9 +16,11 @@ class CreateTareasTable extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->integer('idautor');
+            $table->biginteger('idautor');
             $table->biginteger('idusuario');
-            table->biginteger('cuerpo');
+            $table->text('cuerpo');
+            $table->dateTime('fechacreacion');
+            $table->string('categorias');
             $table->SoftDeletes();
             $table->timestamps();
         });
