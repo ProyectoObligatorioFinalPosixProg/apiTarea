@@ -19,7 +19,6 @@ class CreateTareasTable extends Migration
             $table->biginteger('idautor');
             $table->biginteger('idusuario');
             $table->text('cuerpo');
-            $table->date('fechacreacion');
             $table->string('categorias');
             $table->SoftDeletes();
             $table->timestamps();
