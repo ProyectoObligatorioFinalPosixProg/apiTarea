@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TareaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::prefix('v1')->group(function () {
+    Route::get("/tarea",[TareaController::class,'ListarTarea']);
+    Route::get("/tarea/{id}",[TareaController::class,'BuscarTarea']);
+    Route::post("/tarea",[TareaController::class,'CrearTarea']);
+    Route::delete("/tarea/{id}",[TareaController::class,'EliminarTarea']);
+    Route::put("/tarea/{id}",[TareaController::class,'ModificarTarea']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
 });
