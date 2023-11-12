@@ -16,8 +16,8 @@ class CreateTareasTable extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->biginteger('idautor');
-            $table->biginteger('idusuario');
+            $table->biginteger('idAutor');
+            $table->biginteger('idUsuario');
             $table->text('cuerpo');
             $table->string('categorias');
             $table->SoftDeletes();

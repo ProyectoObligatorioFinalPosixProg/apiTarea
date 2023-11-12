@@ -24,10 +24,9 @@ class TareaController extends Controller
     public function ModificarTarea(Request $request, $idTarea){
         $tarea = Tarea::FindOrFail($idTarea);
         $tarea -> titulo = $request -> post("titulo");
-        $tarea -> idautor = $request -> post("idautor");
-        $tarea -> idusuario = $request -> post("idusuario");
+        $tarea -> idAutor = $request -> post("idAutor");
+        $tarea -> idUsuario = $request -> post("idUsuario");
         $tarea -> cuerpo = $request -> post("cuerpo");
-        $tarea -> fechacreacion = $request -> post("fechacreacion");
         $tarea -> categorias = $request -> post("categorias");
 
         $tarea -> save();
@@ -38,10 +37,9 @@ class TareaController extends Controller
     public function CrearTarea(Request $request){
         $tarea = new Tarea();
         $tarea -> titulo = $request -> post("titulo");
-        $tarea -> idautor = $request -> post("idautor");
-        $tarea -> idusuario = $request -> post("idusuario");
+        $tarea -> idAutor = $request -> post("idAutor");
+        $tarea -> idUsuario = $request -> post("idUsuario");
         $tarea -> cuerpo = $request -> post("cuerpo");
-        $tarea -> fechacreacion = $request -> post("fechacreacion");
         $tarea -> categorias = $request -> post("categorias");
 
         $tarea -> save();
