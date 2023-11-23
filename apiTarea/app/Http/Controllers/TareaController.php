@@ -4,11 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use Illuminate\Support\Facades\Http;
 
 class TareaController extends Controller
 {
     public function ListarTarea(Request $request){
-        return $tarea = Tarea::all();
+        $arrayPelado = [];
+        $tarea = Tarea::all();
+        foreach($tarea as $tarea){
+            $arrayPelado[] = [
+                "id" => $tarea -> id,
+                "titulo" => $tarea -> titulo,
+                "idAutor" => $tarea -> idAutor,
+                "idUsuario" => $this -> obtenerDatosDeUsuario($tarea -> idUsuario, $request),
+                 "cuerpo" => $tarea -> cuerpo,
+                 "categorias" => $tarea -> categorias
+            ];
+        }
+        return $arrayPelado;
+    }
+
+    private function obtenerDatosDeUsuario($id, $request){
+        $tokenHeader = [
+            "Authorization" => $request -> header("Authorization"),
+            "Accept" => "application/json",
+            "Content-Type" => "application/json"
+        ];
+
+        $response = Http::withHeaders($tokenHeader) -> get ( "http://localhost:8002/api/v1/user/" . $id);
+        return $response -> json();
     }
 
     public function BuscarTarea(Request $request, $idTarea){
