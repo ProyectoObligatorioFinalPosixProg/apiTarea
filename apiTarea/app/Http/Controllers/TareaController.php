@@ -17,8 +17,9 @@ class TareaController extends Controller
                 "titulo" => $tarea -> titulo,
                 "idAutor" => $tarea -> idAutor,
                 "idUsuario" => $this -> obtenerDatosDeUsuario($tarea -> idUsuario, $request),
-                 "cuerpo" => $tarea -> cuerpo,
-                 "categorias" => $tarea -> categorias
+                "cuerpo" => $tarea -> cuerpo,
+                "categorias" => $tarea -> categorias,
+                "comentarios" => $tarea -> comentarios
             ];
         }
         return $arrayPelado;
