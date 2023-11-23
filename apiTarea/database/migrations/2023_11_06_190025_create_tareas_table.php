@@ -20,6 +20,7 @@ class CreateTareasTable extends Migration
             $table->biginteger('idUsuario');
             $table->text('cuerpo');
             $table->string('categorias');
+            $table->string('comentarios');
             $table->SoftDeletes();
             $table->timestamps();
         });

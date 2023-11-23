@@ -28,6 +28,7 @@ class TareaController extends Controller
         $tarea -> idUsuario = $request -> post("idUsuario");
         $tarea -> cuerpo = $request -> post("cuerpo");
         $tarea -> categorias = $request -> post("categorias");
+        $tarea -> comentarios = $request -> post ("comentarios");
 
         $tarea -> save();
 
@@ -41,6 +42,7 @@ class TareaController extends Controller
         $tarea -> idUsuario = $request -> post("idUsuario");
         $tarea -> cuerpo = $request -> post("cuerpo");
         $tarea -> categorias = $request -> post("categorias");
+        $tarea -> comentarios = $request -> post ("comentarios");
 
         $tarea -> save();
 

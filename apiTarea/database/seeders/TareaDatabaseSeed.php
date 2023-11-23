@@ -19,7 +19,8 @@ class TareaDatabaseSeed extends Seeder
             "idautor" => 1,
             "idusuario" => 1,
             "cuerpo" => "Realizar formulario BCU",
-            "categorias" => "Auditoria"
+            "categorias" => "Auditoria",
+            "comentarios" => "Buen trabajo"
         ]);
     }
 }
