@@ -1,4 +1,4 @@
-FROM docker.io/bitnami/laravel:10
+FROM mava13/imagenlaravel
 
 WORKDIR /app
 
@@ -9,6 +9,6 @@ RUN composer update && \
 
 RUN php artisan key:generate
 
-EXPOSE 8000
+EXPOSE 8001
 
-CMD php artisan serve --host=0.0.0.0 --port=8000
+CMD php artisan serve --host=0.0.0.0 --port=8001
