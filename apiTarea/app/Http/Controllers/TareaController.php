@@ -82,9 +82,11 @@ class TareaController extends Controller
 
         $tarea -> save();
 
-         Http::post('http://127.0.0.1:8005/api/enviar', [
+        $email = $this->obtenerDatosDeUsuario($tarea->idUsuario, $request)['email'];
+
+         Http::post('http://127.0.0.1:8010/api/enviar', [
             'from' => 'mgmauriciocruz@gmail.com',
-            'to' => 'mgmauriciocruz@gmail.com',
+            'to' => $email,
             'subject' => 'Tarea creada',
         ]);
         
