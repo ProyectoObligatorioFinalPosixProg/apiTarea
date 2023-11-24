@@ -1,0 +1,6 @@
+@echo off
+call composer install
+echo Copiando .env.example a .env...
+call copy .env.example .env
+echo Generando clave de aplicación...
+call php artisan key:generate
