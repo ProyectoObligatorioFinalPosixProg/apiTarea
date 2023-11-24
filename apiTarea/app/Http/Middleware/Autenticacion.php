@@ -29,7 +29,7 @@ class Autenticacion
 
         ];
 
-        $response = Http::withHeaders($tokenHeader) -> get ( "http://127.0.0.1:8002/api/v1/validate");
+        $response = Http::withHeaders($tokenHeader) -> get ( "http://127.0.0.1:8003/api/v1/validate");
         if($response -> successful()){
             Cache::put($token , $response -> json(), 500);
             return $next($request);

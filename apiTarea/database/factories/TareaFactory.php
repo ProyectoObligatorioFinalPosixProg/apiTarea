@@ -15,8 +15,8 @@ class TareaFactory extends Factory
     {
         return [
             'titulo' => $this->faker->word(),
-            'idautor' => $this->faker-> numberBetween(1,100),
-            'idusuario' => $this -> faker -> numberBetween(1,100),
+            'idautor' => $this->faker-> numberBetween(1,10),
+            'idusuario' => $this -> faker -> numberBetween(1,10),
             'cuerpo' => $this -> faker -> RandomElement(['Realizar una Copia de Seguridad', 'Limpiar Archivos Temporales', 'Actualizar Software','Organizar Archivos','Gestión de Contraseñas']),
             'categorias' => $this->faker->RandomElement(['Desarrollo de Software', 'Sistemas Operativos', 'Redes de Computadoras','Bases de Datos','Ciberseguridad']),
             'comentarios' => $this -> faker -> RandomElement(['Buen trabajo', 'No realizado', 'Tarea pendiente'])

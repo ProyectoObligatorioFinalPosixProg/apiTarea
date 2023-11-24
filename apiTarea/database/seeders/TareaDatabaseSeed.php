@@ -13,11 +13,11 @@ class TareaDatabaseSeed extends Seeder
      */
     public function run()
     {
-        \App\Models\Tarea::factory(100)->create();
+        \App\Models\Tarea::factory(10)->create();
         \App\Models\Tarea::factory(1)->create([
             "titulo" => "Desarrollo primario",
-            "idautor" => 1,
-            "idusuario" => 1,
+            "idautor" => 11,
+            "idusuario" => 11,
             "cuerpo" => "Realizar formulario BCU",
             "categorias" => "Auditoria",
             "comentarios" => "Buen trabajo"
