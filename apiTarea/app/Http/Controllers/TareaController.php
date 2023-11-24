@@ -37,8 +37,19 @@ class TareaController extends Controller
     }
 
     public function BuscarTarea(Request $request, $idTarea){
-        return $tarea = Tarea::FindOrFail($idTarea);
-    }
+    $arrayPelado = [];
+    $tarea = Tarea::findOrFail($idTarea);
+    $arrayPelado[] = [
+        "id" => $tarea->id,
+        "titulo" => $tarea->titulo,
+        "idAutor" => $tarea->idAutor,
+        "idUsuario" => $this->obtenerDatosDeUsuario($tarea->idUsuario, $request),
+        "cuerpo" => $tarea->cuerpo,
+        "categorias" => $tarea->categorias,
+        "comentarios" => $tarea->comentarios
+    ];
+    return $arrayPelado;
+}
 
     public function EliminarTarea(Request $request, $idTarea){
         $tarea = Tarea::FindOrFail($idTarea);
@@ -71,7 +82,7 @@ class TareaController extends Controller
 
         $tarea -> save();
 
-         Http::post('http://127.0.0.1:8004/api/enviar', [
+         Http::post('http://127.0.0.1:8005/api/enviar', [
             'from' => 'mgmauriciocruz@gmail.com',
             'to' => 'mgmauriciocruz@gmail.com',
             'subject' => 'Tarea creada',
