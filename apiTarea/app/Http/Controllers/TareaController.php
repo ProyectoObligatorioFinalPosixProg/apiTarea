@@ -54,6 +54,14 @@ class TareaController extends Controller
     public function EliminarTarea(Request $request, $idTarea){
         $tarea = Tarea::FindOrFail($idTarea);
         $tarea -> delete();
+
+        $email = $this->obtenerDatosDeUsuario($tarea->idUsuario, $request)['email'];
+         Http::post('http://127.0.0.1:8010/api/enviar', [
+            'from' => 'gestorTarea@gmail.com',
+            'to' => $email,
+            'subject' => 'Tarea eliminada',
+        ]);
+
         return [ "message" => "Deleted"];
     }
 
