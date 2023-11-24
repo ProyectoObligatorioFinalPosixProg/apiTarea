@@ -71,6 +71,12 @@ class TareaController extends Controller
 
         $tarea -> save();
 
+         Http::post('http://127.0.0.1:8003/api/enviar', [
+            'from' => 'mgmauriciocruz@gmail.com',
+            'to' => 'mgmauriciocruz@gmail.com',
+            'subject' => 'Tarea creada',
+        ]);
+        
         return $tarea;
     }
 }
